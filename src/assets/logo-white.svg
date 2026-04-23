@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 66" fill="none">
+  <rect x="5" y="4" width="24" height="16" rx="4" fill="white" opacity="0.22"></rect>
+  <rect x="5" y="38" width="24" height="16" rx="4" fill="white" opacity="0.22"></rect>
+  <rect x="15" y="18" width="26" height="22" rx="5" fill="white" opacity="0.92"></rect>
+  <text x="54" y="42" font-family="&#39;Baloo 2&#39;, sans-serif" font-weight="800" font-size="28" fill="white" letter-spacing="-0.5">FrameShift</text>
+</svg>
