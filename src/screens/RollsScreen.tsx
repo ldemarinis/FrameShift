@@ -8,7 +8,7 @@ import { colors, semantic, typography, shadows, radii } from '../tokens';
 
 type GradientName = 'hero' | 'ocean' | 'golden' | 'teal';
 
-interface Crew {
+interface Roll {
   name: string;
   emoji: string;
   members: number;
@@ -17,12 +17,12 @@ interface Crew {
   initials: { letter: string; grad: GradientName }[];
 }
 
-const CREWS: Crew[] = [
+const ROLLS: Roll[] = [
   {
     name: 'The Rivera Fam',
     emoji: '👨‍👩‍👧‍👦',
     members: 6,
-    last: 'Mom posted a new memory',
+    last: 'Mom posted a new moment',
     gradient: ['#FF4F35', '#FFB830'],
     initials: [
       { letter: 'J', grad: 'hero' },
@@ -45,7 +45,7 @@ const CREWS: Crew[] = [
     ],
   },
   {
-    name: 'College Crew',
+    name: 'College Days',
     emoji: '🎓',
     members: 8,
     last: 'Alex dropped a moment',
@@ -59,45 +59,42 @@ const CREWS: Crew[] = [
   },
 ];
 
-export function CrewScreen() {
+export function RollsScreen() {
   const insets = useSafeAreaInsets();
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top + 10 }]}>
-        <Text style={styles.title}>My Crews</Text>
-        <Button size="sm" onPress={() => {}}>+ New</Button>
+        <Text style={styles.title}>My Rolls</Text>
+        <Button size="sm" onPress={() => {}}>+ New Roll</Button>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.list}>
-        {CREWS.map((crew, i) => (
-          <TouchableOpacity key={i} activeOpacity={0.85} style={styles.crewCard}>
-            {/* Icon */}
-            <LinearGradient colors={crew.gradient} style={styles.crewIcon}>
-              <Text style={styles.crewEmoji}>{crew.emoji}</Text>
+        {ROLLS.map((roll, i) => (
+          <TouchableOpacity key={i} activeOpacity={0.85} style={styles.rollCard}>
+            <LinearGradient colors={roll.gradient} style={styles.rollIcon}>
+              <Text style={styles.rollEmoji}>{roll.emoji}</Text>
             </LinearGradient>
 
-            {/* Info */}
-            <View style={styles.crewInfo}>
-              <Text style={styles.crewName}>{crew.name}</Text>
-              <Text style={styles.crewLast}>{crew.last}</Text>
+            <View style={styles.rollInfo}>
+              <Text style={styles.rollName}>{roll.name}</Text>
+              <Text style={styles.rollLast}>{roll.last}</Text>
             </View>
 
-            {/* Facepile + member count */}
-            <View style={styles.crewMeta}>
+            <View style={styles.rollMeta}>
               <View style={styles.facepile}>
-                {crew.initials.map((m, j) => (
+                {roll.initials.map((m, j) => (
                   <View key={j} style={[styles.faceWrap, j > 0 && styles.faceOverlap]}>
                     <Avatar initial={m.letter} size={26} gradient={m.grad} />
                   </View>
                 ))}
-                {crew.members > 4 && (
+                {roll.members > 4 && (
                   <View style={[styles.faceWrap, styles.faceOverlap, styles.faceMore]}>
-                    <Text style={styles.faceMoreText}>+{crew.members - 4}</Text>
+                    <Text style={styles.faceMoreText}>+{roll.members - 4}</Text>
                   </View>
                 )}
               </View>
-              <Text style={styles.memberCount}>{crew.members} members</Text>
+              <Text style={styles.memberCount}>{roll.members} members</Text>
             </View>
           </TouchableOpacity>
         ))}
@@ -132,14 +129,14 @@ const styles = StyleSheet.create({
     padding: 14,
     gap: 12,
   },
-  crewCard: {
+  rollCard: {
     backgroundColor: 'white',
     borderRadius: radii.xl,
     padding: 16,
     gap: 12,
     ...shadows.sm,
   },
-  crewIcon: {
+  rollIcon: {
     width: 48,
     height: 48,
     borderRadius: 14,
@@ -147,24 +144,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'flex-start',
   },
-  crewEmoji: {
+  rollEmoji: {
     fontSize: 22,
   },
-  crewInfo: {
+  rollInfo: {
     gap: 2,
   },
-  crewName: {
+  rollName: {
     fontFamily: typography.familyBodyBold,
     fontWeight: typography.weightBold,
     fontSize: 16,
     color: colors.neutral900,
   },
-  crewLast: {
+  rollLast: {
     fontFamily: typography.familyBody,
     fontSize: 12,
     color: colors.neutral400,
   },
-  crewMeta: {
+  rollMeta: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FeedScreen } from '../screens/FeedScreen';
-import { CrewScreen } from '../screens/CrewScreen';
+import { RollsScreen } from '../screens/RollsScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { colors, typography, shadows } from '../tokens';
 
@@ -78,11 +78,11 @@ export function AppNavigator() {
         }}
       />
       <Tab.Screen
-        name="Crew"
-        component={CrewScreen}
+        name="Rolls"
+        component={RollsScreen}
         options={{
-          tabBarLabel: 'Crew',
-          tabBarIcon: () => '👥',
+          tabBarLabel: 'Rolls',
+          tabBarIcon: () => '🎞️',
         }}
       />
       <Tab.Screen

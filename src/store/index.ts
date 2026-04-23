@@ -1,5 +1,5 @@
 export { useAuthStore } from './auth';
 export { useFeedStore } from './feed';
-export { useCrewsStore } from './crews';
+export { useRollsStore } from './rolls';
 export type { Post } from './feed';
-export type { Crew } from './crews';
+export type { Roll } from './rolls';

@@ -8,7 +8,7 @@ import { colors, semantic, typography, shadows, radii } from '../tokens';
 
 const STATS = [
   { value: '47',  label: 'Moments' },
-  { value: '3',   label: 'Crews' },
+  { value: '3',   label: 'Rolls' },
   { value: '284', label: 'Reactions' },
 ];
 
