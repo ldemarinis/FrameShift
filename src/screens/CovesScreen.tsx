@@ -8,7 +8,7 @@ import { colors, semantic, typography, shadows, radii } from '../tokens';
 
 type GradientName = 'hero' | 'ocean' | 'golden' | 'teal';
 
-interface Roll {
+interface Cove {
   name: string;
   emoji: string;
   members: number;
@@ -17,7 +17,7 @@ interface Roll {
   initials: { letter: string; grad: GradientName }[];
 }
 
-const ROLLS: Roll[] = [
+const ROLLS: Cove[] = [
   {
     name: 'The Rivera Fam',
     emoji: '👨‍👩‍👧‍👦',
@@ -59,42 +59,42 @@ const ROLLS: Roll[] = [
   },
 ];
 
-export function RollsScreen() {
+export function CovesScreen() {
   const insets = useSafeAreaInsets();
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={[styles.header, { paddingTop: insets.top + 10 }]}>
-        <Text style={styles.title}>My Rolls</Text>
-        <Button size="sm" onPress={() => {}}>+ New Roll</Button>
+        <Text style={styles.title}>My Coves</Text>
+        <Button size="sm" onPress={() => {}}>+ New Cove</Button>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.list}>
-        {ROLLS.map((roll, i) => (
-          <TouchableOpacity key={i} activeOpacity={0.85} style={styles.rollCard}>
-            <LinearGradient colors={roll.gradient} style={styles.rollIcon}>
-              <Text style={styles.rollEmoji}>{roll.emoji}</Text>
+        {ROLLS.map((cove, i) => (
+          <TouchableOpacity key={i} activeOpacity={0.85} style={styles.coveCard}>
+            <LinearGradient colors={cove.gradient} style={styles.coveIcon}>
+              <Text style={styles.coveEmoji}>{cove.emoji}</Text>
             </LinearGradient>
 
-            <View style={styles.rollInfo}>
-              <Text style={styles.rollName}>{roll.name}</Text>
-              <Text style={styles.rollLast}>{roll.last}</Text>
+            <View style={styles.coveInfo}>
+              <Text style={styles.coveName}>{cove.name}</Text>
+              <Text style={styles.coveLast}>{cove.last}</Text>
             </View>
 
-            <View style={styles.rollMeta}>
+            <View style={styles.coveMeta}>
               <View style={styles.facepile}>
-                {roll.initials.map((m, j) => (
+                {cove.initials.map((m, j) => (
                   <View key={j} style={[styles.faceWrap, j > 0 && styles.faceOverlap]}>
                     <Avatar initial={m.letter} size={26} gradient={m.grad} />
                   </View>
                 ))}
-                {roll.members > 4 && (
+                {cove.members > 4 && (
                   <View style={[styles.faceWrap, styles.faceOverlap, styles.faceMore]}>
-                    <Text style={styles.faceMoreText}>+{roll.members - 4}</Text>
+                    <Text style={styles.faceMoreText}>+{cove.members - 4}</Text>
                   </View>
                 )}
               </View>
-              <Text style={styles.memberCount}>{roll.members} members</Text>
+              <Text style={styles.memberCount}>{cove.members} members</Text>
             </View>
           </TouchableOpacity>
         ))}
@@ -129,14 +129,14 @@ const styles = StyleSheet.create({
     padding: 14,
     gap: 12,
   },
-  rollCard: {
+  coveCard: {
     backgroundColor: 'white',
     borderRadius: radii.xl,
     padding: 16,
     gap: 12,
     ...shadows.sm,
   },
-  rollIcon: {
+  coveIcon: {
     width: 48,
     height: 48,
     borderRadius: 14,
@@ -144,24 +144,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'flex-start',
   },
-  rollEmoji: {
+  coveEmoji: {
     fontSize: 22,
   },
-  rollInfo: {
+  coveInfo: {
     gap: 2,
   },
-  rollName: {
+  coveName: {
     fontFamily: typography.familyBodyBold,
     fontWeight: typography.weightBold,
     fontSize: 16,
     color: colors.neutral900,
   },
-  rollLast: {
+  coveLast: {
     fontFamily: typography.familyBody,
     fontSize: 12,
     color: colors.neutral400,
   },
-  rollMeta: {
+  coveMeta: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

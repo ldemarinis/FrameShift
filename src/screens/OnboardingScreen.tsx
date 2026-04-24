@@ -23,7 +23,7 @@ const STEPS = [
     gradient: ['#0093E0', '#00AB90'] as [string, string],
     emoji: '🔒',
     headline: 'Completely private.\nAlways.',
-    sub: 'No algorithms. No strangers. Just your roll.',
+    sub: 'No algorithms. No strangers. Just your cove.',
   },
   {
     gradient: ['#F5A800', '#FF4F35'] as [string, string],
